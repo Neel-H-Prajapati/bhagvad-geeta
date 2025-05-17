@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>શ્રીમદ્ ભગવદ્ ગીતા</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati&display=swap" rel="stylesheet">
+  <style>
+  #loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #fff7ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    flex-direction: column;
+    font-family: 'Gujarati', sans-serif;
+  }
+
+  .loader-content {
+    text-align: center;
+    color: #b45309;
+  }
+
+  .loader-content h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .loader-content p {
+    font-size: 1.2rem;
+  }
+</style>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">📖 શ્રીમદ્ ભગવદ્ ગીતા</h1>
+  </header>
+  <div id="loader">
+   <div class="loader-content">
+    <h2>🙏 આપનું સ્વાગત છે 🙏</h2>
+    <p>શ્રીમદ્ ભગવદ્ ગીતા વાંચન માટે આપનું હાર્દિક સ્વાગત છે</p>
+  </div>
+</div>
+  <main class="main-body">
+    <!-- Dynamic content goes here -->
+    <div id="content-area">
+      <div id="chapter-list" class="chapter-list">
+        <p class="subtitle">અધ્યાયોની યાદી – પસંદ કરો અને શ્લોકો વાંચો</p>
+        <ul>
+          <li><a href="chapter1.html" onclick="loadChapter(event, 'chapter1.html')">અધ્યાય ૧ - અર્જુનવિષાદ યોગ</a></li>
+          <li><a href="chapter2.html" onclick="loadChapter(event, 'chapter2.html')">અધ્યાય ૨ - સાંખ્ય યોગ</a></li>
+          <li><a href="chapter3.html" onclick="loadChapter(event, 'chapter3.html')">અધ્યાય ૩ - કર્મ યોગ</a></li>
+          <li><a href="chapter4.html" onclick="loadChapter(event, 'chapter4.html')">અધ્યાય ૪ - જ્ઞાનકર્મસંન્યાસ યોગ</a></li>
+          <li><a href="chapter5.html" onclick="loadChapter(event, 'chapter5.html')">અધ્યાય ૫ - કર્મસંન્યાસ યોગ</a></li>
+          <li><a href="chapter6.html" onclick="loadChapter(event, 'chapter6.html')">અધ્યાય ૬ - આત્મસંયમ યોગ</a></li>
+          <li><a href="chapter7.html" onclick="loadChapter(event, 'chapter7.html')">અધ્યાય ૭ - જ્ઞાનવિજ્ઞાન યોગ</a></li>
+          <li><a href="chapter8.html" onclick="loadChapter(event, 'chapter8.html')">અધ્યાય ૮ - અક્ષરબ્રહ્મ યોગ</a></li>
+          <li><a href="chapter9.html" onclick="loadChapter(event, 'chapter9.html')">અધ્યાય ૯ - રાજવિદ્યારાજગુહ્ય યોગ</a></li>
+          <li><a href="chapter10.html" onclick="loadChapter(event, 'chapter10.html')">અધ્યાય ૧૦ - વિભૂતિ યોગ</a></li>
+          <li><a href="chapter11.html" onclick="loadChapter(event, 'chapter11.html')">અધ્યાય ૧૧ - વિશ્‍વરૂપદર્શન યોગ</a></li>
+          <li><a href="chapter12.html" onclick="loadChapter(event, 'chapter12.html')">અધ્યાય ૧૨ - ભક્તિ યોગ</a></li>
+          <li><a href="chapter13.html" onclick="loadChapter(event, 'chapter13.html')">અધ્યાય ૧૩ - ક્ષેત્રક્ષેત્રજ્ઞવિભાગ યોગ</a></li>
+          <li><a href="chapter14.html" onclick="loadChapter(event, 'chapter14.html')">અધ્યાય ૧૪ - ગુણત્રયવિભાગ યોગ</a></li>
+          <li><a href="chapter15.html" onclick="loadChapter(event, 'chapter15.html')">અધ્યાય ૧૫ - પુરુષોત્તમ યોગ</a></li>
+          <li><a href="chapter16.html" onclick="loadChapter(event, 'chapter16.html')">અધ્યાય ૧૬ - દેવાસુરસમ્પદ્વિભાગ યોગ</a></li>
+          <li><a href="chapter17.html" onclick="loadChapter(event, 'chapter17.html')">અધ્યાય ૧૭ - શ્રદ્ધાત્રયવિભાગ યોગ</a></li>
+          <li><a href="chapter18.html" onclick="loadChapter(event, 'chapter18.html')">અધ્યાય ૧૮ - મોક્ષસંન્યાસ યોગ</a></li>
+        </ul>
+      </div>
+
+      <div id="slok-content" class="chapter-content" style="display: none;"></div>
+    </div>
+  </main>
+
+  <script>
+       window.addEventListener('load', function () {
+    setTimeout(function () {
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+    }, 2500); 
+  });
+    function loadChapter(event, file) {
+      event.preventDefault();
+      history.pushState({ chapter: file }, '', '#' + file); // Push state
+
+      fetch(file)
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("chapter-list").style.display = "none";
+          const slokDiv = document.getElementById("slok-content");
+          slokDiv.innerHTML = data;
+          slokDiv.style.display = "block";
+        })
+        .catch(() => {
+          document.getElementById("slok-content").innerHTML = "<p>શ્લોક લોડ કરવામાં ભૂલ આવી.</p>";
+        });
+    }
+
+    // Handle back/forward buttons
+    window.addEventListener("popstate", function () {
+      const hash = window.location.hash;
+      if (!hash) {
+        // Back to list
+        document.getElementById("slok-content").style.display = "none";
+        document.getElementById("chapter-list").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
